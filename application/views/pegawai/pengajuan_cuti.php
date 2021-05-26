@@ -27,6 +27,7 @@
                   <th>Tanggal Mulai</th>
                   <th>Tanggal Selesai</th>
                   <th>Alamat Selama Cuti</th>
+                  <th>Surat Edaran</th>
                   <th>Status</th>
                 </thead>
                 <tbody>
@@ -39,6 +40,13 @@
                         <td><?= $key['tanggal_mulai']; ?></td>
                         <td><?= $key['tanggal_selesai']; ?></td>
                         <td><?= $key['alamat_cuti']; ?></td>
+                        <td>
+                          <?php
+                            if ($key['status_cuti'] == '4') { 
+                              echo '<a class="btn btn-success" href="' . base_url('assets/' . $key['surat_edaran']) . '">Lihat Surat Edaran</a>';
+                            }
+                          ?>
+                        </td>
                         <td>
                           <?php
                             switch ($key['status_cuti']) {

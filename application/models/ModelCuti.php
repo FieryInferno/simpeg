@@ -11,10 +11,12 @@ class ModelCuti extends CI_model {
 	{
     switch ($this->session->level) {
       case 'kasubag':
+        $this->db->where('status_cuti', '0');
+        $this->db->or_where('status_cuti', '2');
         $status_cuti  = '0';
         break;
       case 'admin':
-        $status_cuti  = '1';
+        $this->db->where('status_cuti', '1');
         break;
       
       default:
@@ -22,7 +24,7 @@ class ModelCuti extends CI_model {
         break;
     }
     $this->db->join('pegawai', 'cuti.id_pegawai = pegawai.id_user');
-    return $this->db->get_where('cuti', ['status_cuti' => $status_cuti])->result_array();
+    return $this->db->get('cuti')->result_array();
 	}
 
   public function verifikasi($id_cuti)
@@ -74,5 +76,10 @@ class ModelCuti extends CI_model {
       'surat_edaran'  => $filename . '.pdf',
       'status_cuti'   => '2'
     ], ['id_cuti' => $id_cuti]);
+  }
+
+  public function verifikasiSuratEdaran($id_cuti)
+  {
+    $this->db->update('cuti', ['status_cuti'  => '3'], ['id_cuti' => $id_cuti]);
   }
 }

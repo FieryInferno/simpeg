@@ -21,6 +21,9 @@ class ModelCuti extends CI_model {
       case 'sekretaris':
         $this->db->where('status_cuti', '3');
         break;
+      case 'kepala_bp4d':
+        $this->db->where('status_cuti', '4');
+        break;
       
       default:
         # code...
@@ -89,5 +92,10 @@ class ModelCuti extends CI_model {
   public function verifikasiSekretaris($id_cuti)
   {
     $this->db->update('cuti', ['status_cuti'  => '4'], ['id_cuti' => $id_cuti]);
+  }
+
+  public function verifikasiKepala($id_cuti)
+  {
+    $this->db->update('cuti', ['status_cuti'  => '6'], ['id_cuti' => $id_cuti]);
   }
 }

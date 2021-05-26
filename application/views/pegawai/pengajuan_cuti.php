@@ -42,7 +42,7 @@
                         <td><?= $key['alamat_cuti']; ?></td>
                         <td>
                           <?php
-                            if ($key['status_cuti'] == '4') { 
+                            if ($key['status_cuti'] == '6') { 
                               echo '<a class="btn btn-success" href="' . base_url('assets/' . $key['surat_edaran']) . '">Lihat Surat Edaran</a>';
                             }
                           ?>
@@ -67,6 +67,9 @@
                                 <?php break;
                               case '5': ?>
                                 <button class="btn btn-success">Ditolak</button>
+                                <?php break;
+                              case '6': ?>
+                                <button class="btn btn-success">Cuti Disetujui</button>
                                 <?php break;
                               
                               default:

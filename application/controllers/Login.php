@@ -15,7 +15,7 @@ class Login extends CI_Controller {
 					redirect ('admin');
 					break;
 				case 'kepala_bp4d':
-					redirect ('kepala_bp4d');
+					redirect ('kepala_bp4d.html');
 					break;
 				case 'kasubid':
 					redirect ('kasubid');

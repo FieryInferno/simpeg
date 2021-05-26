@@ -10,7 +10,7 @@
             <h4 class="card-title ">Data Pengajuan Cuti</h4>
           </div>
           <div class="card-body">
-            <a class="btn btn-primary text-light" style="background-color: #fc9309;" href="<?= base_url(); ?>pegawai/tambah_pengajuan_cuti"><i class="material-icons">add</i>Tambah Pengajuan</a>
+            <a class="btn btn-primary text-light" style="background-color: #fc9309;" href="<?= base_url(); ?>pegawai/tambah_pengajuan_cuti.html"><i class="material-icons">add</i>Tambah Pengajuan</a>
             <div class="table-responsive">
               <?php 
                 if ($this->session->alert) { ?>
@@ -42,14 +42,23 @@
                         <td>
                           <?php
                             switch ($key['status_cuti']) {
-                              case 'belum_verifikasi': ?>
-                                <button class="btn btn-danger">Menunggu Verifikasi Admin</button>
+                              case '0': ?>
+                                <button class="btn btn-danger">Menunggu Verifikasi Kasubag</button>
                                 <?php break;
-                              case 'verifikasi_admin': ?>
-                                <button class="btn btn-primary">Menunggu Verifikasi Kepala</button>
+                              case '1': ?>
+                                <button class="btn btn-primary">Pembuatan Surat Izin Cuti oleh Staff Kepegawaian</button>
                                 <?php break;
-                              case 'verifikasi_kepala': ?>
-                                <button class="btn btn-success">Cuti disetujui</button>
+                              case '2': ?>
+                                <button class="btn btn-success">Verifikasi Surat Izin oleh Kasubag</button>
+                                <?php break;
+                              case '3': ?>
+                                <button class="btn btn-success">Verifikasi Surat Izin oleh Sekretaris</button>
+                                <?php break;
+                              case '4': ?>
+                                <button class="btn btn-success">Verifikasi Surat Izin oleh Kepala</button>
+                                <?php break;
+                              case '5': ?>
+                                <button class="btn btn-success">Ditolak</button>
                                 <?php break;
                               
                               default:

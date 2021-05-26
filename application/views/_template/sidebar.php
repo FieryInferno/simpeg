@@ -1,11 +1,6 @@
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" style="background-color: #070495;">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal text-white">
           SIMPEG
         </a></div>
@@ -23,7 +18,7 @@
             </a>
           </li>
           <?php
-          switch ($this->uri->segment(1)) {
+          switch ($this->session->level) {
             case 'admin': ?>
               <li class="nav-item 
                 <?php
@@ -104,6 +99,19 @@
                   }
                 ?>">
                 <a class="nav-link text-white" href="<?= base_url(); ?>kepala_bp4d/pengajuan_cuti">
+                  <i class="material-icons text-white">person</i>
+                  <p>Pengajuan Cuti</p>
+                </a>
+              </li>
+              <?php break;
+            case 'kasubag': ?>
+              <li class="nav-item 
+                <?php
+                  if ($title == 'Pengajuan Cuti') {
+                    echo 'active';
+                  }
+                ?>">
+                <a class="nav-link text-white" href="<?= base_url(); ?>kasubag/pengajuan_cuti.html">
                   <i class="material-icons text-white">person</i>
                   <p>Pengajuan Cuti</p>
                 </a>

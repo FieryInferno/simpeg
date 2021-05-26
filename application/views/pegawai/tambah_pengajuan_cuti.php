@@ -10,7 +10,7 @@
             <h4 class="card-title ">Tambah Pengajuan Cuti</h4>
           </div>
           <div class="card-body">
-            <form action="<?php base_url('pegawai/tambah_pengajuan_cuti') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php base_url('pegawai/tambah_pengajuan_cuti.html') ?>" method="post" enctype="multipart/form-data">
               <div class="form-group col-6">
                 <label for="">Jenis Cuti</label>
                 <select class="form-control" name="jenis_cuti" id="jenis_cuti" aria-describedby="helpId" placeholder="">

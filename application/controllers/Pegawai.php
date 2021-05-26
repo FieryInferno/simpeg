@@ -51,7 +51,7 @@ class Pegawai extends CI_Controller {
 		$this->load->view('pegawai/ubah_profile', $data);
   }
 
-  public function pengajuan_cuti()
+  public function pengajuanCuti()
   {
     $data['cuti'] = $this->db->get_where('cuti', [
       'id_pegawai'  => $this->session->id_user
@@ -60,7 +60,7 @@ class Pegawai extends CI_Controller {
     $this->load->view('pegawai/pengajuan_cuti', $data);
   }
 
-  public function tambah_pengajuan_cuti()
+  public function tambahPengajuanCuti()
   {
     if ($this->input->post()) {
       $tanggal1     = new DateTime($this->input->post('tanggal_mulai'));
@@ -78,7 +78,7 @@ class Pegawai extends CI_Controller {
       $this->session->set_flashdata('alert', '
         <strong>Sukses</strong> Berhasil tambah pengajuan cuti.
       ');
-      redirect('pegawai/pengajuan_cuti');
+      redirect('pegawai/pengajuan_cuti.html');
     }
     $data['title']	= 'Tambah Pengajuan Cuti';
     $this->load->view('pegawai/tambah_pengajuan_cuti', $data);

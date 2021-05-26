@@ -19,7 +19,10 @@ class Login extends CI_Controller {
 					break;
 				case 'kasubid':
 					redirect ('kasubid');
-					break;			
+					break;	
+        case 'kasubag':
+          redirect ('kasubag.html');
+          break;			
 			}
 		}
 	}

@@ -7,20 +7,20 @@ class Cuti extends CI_Controller {
 	{
     $data['title']  = 'Pengajuan Cuti';
     $data['cuti']   = $this->ModelCuti->getAll();
-		$this->load->view('kasubag/pengajuanCuti', $data);
+		$this->load->view('admin/pengajuanCuti', $data);
 	}
 
-  public function verifikasi($id_cuti)
+  public function buatSurat($id_cuti)
   {
-    $this->ModelCuti->verifikasi($id_cuti);
+    $this->ModelCuti->buatSurat($id_cuti);
     $this->session->set_flashdata('pesan', '
       <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Sukses</strong> Berhasil verifikasi cuti.
+        <strong>Sukses</strong> Surat Edaran Berhasil Dibuat.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
     ');
-    redirect('kasubag/pengajuan_cuti.html');
+    redirect('admin/pengajuan_cuti.html');
   }
 }

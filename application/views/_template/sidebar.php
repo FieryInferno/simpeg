@@ -70,7 +70,7 @@
                     echo 'active';
                   }
                 ?>">
-                <a class="nav-link text-white" href="<?= base_url(); ?>admin/pengajuan_cuti">
+                <a class="nav-link text-white" href="<?= base_url(); ?>admin/pengajuan_cuti.html">
                   <i class="material-icons text-white">person</i>
                   <p>Pengajuan Cuti</p>
                 </a>

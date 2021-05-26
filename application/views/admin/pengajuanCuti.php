@@ -11,13 +11,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <?php 
-                if ($this->session->alert) { ?>
-                  <div class="alert alert-success" role="alert">
-                    <?= $this->session->alert; ?>
-                  </div>
-                <?php } 
-              ?>
+              <?= $this->session->pesan ? $this->session->pesan : '' ; ?>
               <table class="table" id="table" width="100%" cellspacing="0">
                 <thead class="text-success">
                   <th>Nama Pegawai</th>
@@ -41,23 +35,7 @@
                         <td><?= $key['tanggal_selesai']; ?></td>
                         <td><?= $key['alamat_cuti']; ?></td>
                         <td>
-                          <?php
-                            switch ($key['status_cuti']) {
-                              case 'belum_verifikasi': ?>
-                                <a href="<?= base_url('admin/verifikasi_cuti/' . $key['id_cuti']); ?>" class="btn btn-warning">Verifikasi</a>
-                                <?php break;
-                              case 'verifikasi_admin': ?>
-                                <button class="btn btn-primary">Menunggu Verifikasi Kepala</button>
-                                <?php break;
-                              case 'verifikasi_kepala': ?>
-                                <button class="btn btn-success">Cuti disetujui</button>
-                                <?php break;
-                              
-                              default:
-                                # code...
-                                break;
-                            }
-                          ?>
+                          <a href="<?= base_url('admin/pengajuan_cuti/buat_surat/' . $key['id_cuti']); ?>" class="btn btn-success">Buat Surat Izin</a>
                         </td>
                       </tr>
                     <?php } ?>

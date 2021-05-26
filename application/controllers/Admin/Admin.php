@@ -86,14 +86,6 @@ class Admin extends CI_Controller {
     $this->load->view('admin/tambah_jabatan_pilihan', $data);	
   }
 
-  public function pengajuan_cuti()
-  {
-    $this->db->join('pegawai', 'cuti.id_pegawai = pegawai.id_user');
-    $data['cuti'] = $this->db->get('cuti')->result_array();
-		$data['title']	= 'Pengajuan Cuti';
-    $this->load->view('admin/pengajuan_cuti', $data);
-  }
-
   public function verifikasi_cuti($id_cuti)
   {
     $this->db->where('id_cuti', $id_cuti);

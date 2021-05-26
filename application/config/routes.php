@@ -18,3 +18,9 @@ $route['kasubag.html']                                          = 'Kasubag/Kasub
 $route['kasubag/pengajuan_cuti.html']                           = 'Kasubag/Cuti';
 $route['kasubag/pengajuan_cuti/verifikasi/(:any)']              = 'Kasubag/Cuti/verifikasi/$1';
 $route['kasubag/pengajuan_cuti/verifikasi_surat_edaran/(:any)'] = 'Kasubag/Cuti/verifikasiSuratEdaran/$1';
+
+$route['sekretaris.html']                             = 'Sekretaris/Sekretaris';
+$route['sekretaris/pengajuan_cuti.html']              = 'Sekretaris/Cuti';
+$route['sekretaris/pengajuan_cuti/verifikasi/(:any)'] = 'Sekretaris/Cuti/verifikasi/$1';
+
+$route['kepala_bp4d/pengajuan_cuti.html'] = 'Kepala_bp4d/Cuti';

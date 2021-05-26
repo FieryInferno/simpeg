@@ -98,7 +98,7 @@
                     echo 'active';
                   }
                 ?>">
-                <a class="nav-link text-white" href="<?= base_url(); ?>kepala_bp4d/pengajuan_cuti">
+                <a class="nav-link text-white" href="<?= base_url(); ?>kepala_bp4d/pengajuan_cuti.html">
                   <i class="material-icons text-white">person</i>
                   <p>Pengajuan Cuti</p>
                 </a>
@@ -112,6 +112,19 @@
                   }
                 ?>">
                 <a class="nav-link text-white" href="<?= base_url(); ?>kasubag/pengajuan_cuti.html">
+                  <i class="material-icons text-white">person</i>
+                  <p>Pengajuan Cuti</p>
+                </a>
+              </li>
+              <?php break;
+            case 'sekretaris': ?>
+              <li class="nav-item 
+                <?php
+                  if ($title == 'Pengajuan Cuti') {
+                    echo 'active';
+                  }
+                ?>">
+                <a class="nav-link text-white" href="<?= base_url(); ?>sekretaris/pengajuan_cuti.html">
                   <i class="material-icons text-white">person</i>
                   <p>Pengajuan Cuti</p>
                 </a>

@@ -95,4 +95,15 @@ class Admin extends CI_Controller {
     $this->session->set_flashdata('alert', 'Data cuti berhasil disetujui');
     redirect('admin/pengajuan_cuti');
   }
+
+  public function tambah_data_user()
+  {
+    if ($this->input->post()) {
+      $this->ModelUser->tambah();
+      $this->session->set_flashdata('alert', 'Data user ditambah ');
+      redirect('admin/data_user');
+    }
+		$data['title']	= 'Tambah User';
+		$this->load->view('admin/tambahUser', $data);
+  }
 }

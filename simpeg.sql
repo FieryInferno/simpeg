@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Waktu pembuatan: 07 Apr 2021 pada 05.06
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.3.0
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 17 Jun 2021 pada 19.07
+-- Versi server: 10.4.19-MariaDB
+-- Versi PHP: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -45,7 +44,9 @@ CREATE TABLE `cuti` (
 --
 
 INSERT INTO `cuti` (`id_cuti`, `id_pegawai`, `tanggal_pengajuan`, `jumlah_hari`, `tanggal_mulai`, `tanggal_selesai`, `alamat_cuti`, `jenis_cuti`, `status_cuti`) VALUES
-(2, '6', '2021-04-06', 3, '2021-04-06', '2021-04-09', 'sagalaherang', 'cuti_sakit', 'verifikasi_kepala');
+(2, '6', '2021-04-06', 3, '2021-04-06', '2021-04-09', 'sagalaherang', 'cuti_sakit', 'verifikasi_kepala'),
+(3, '6', '2021-06-17', 2, '2021-06-17', '2021-06-19', 'sagalaherang', 'cuti_tahunan', 'belum_verifikasi'),
+(4, '6', '2021-06-17', 8, '2021-06-17', '2021-06-25', 'sagalaherang', 'cuti_tahunan', 'belum_verifikasi');
 
 -- --------------------------------------------------------
 
@@ -120,17 +121,42 @@ CREATE TABLE `pegawai` (
   `npwp` varchar(191) DEFAULT NULL,
   `status` enum('belum','sudah') NOT NULL,
   `bidang` varchar(100) NOT NULL,
-  `id_user` varchar(191) NOT NULL
+  `id_user` varchar(191) NOT NULL,
+  `bagian` varchar(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `pegawai`
 --
 
-INSERT INTO `pegawai` (`id_pegawai`, `email`, `nama_lengkap`, `nip`, `nip_lama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `status_perkawinan`, `suku_bangsa`, `golongan_darah`, `jalan`, `rt/rw`, `desa`, `kecamatan`, `kabupaten`, `provinsi`, `no_telp`, `foto`, `no_karpeg`, `no_karis`, `no_ktp`, `no_peserta_askes`, `no_peserta_taspen`, `npwp`, `status`, `bidang`, `id_user`) VALUES
-(1, 'bagassetia271@gmail.com', 'M. Bagas Setia', '10104019', '-', 'Bandung', '1998-11-26', 'laki-laki', 'islam', 'menikah', 'sunda', 'A', 'Kp. Pasir Gombong', '15/07', 'Sukamandi', 'Sagalaherang', 'Subang', 'Jawa Barat', '085723853284', 'ANTM5.png', '123', '123', '1', '123', '123', '123', 'sudah', ' ', '2'),
-(2, 'malbinuriman21@gmail.com', 'M. Albi Nur\'Iman', '12345678', '-', 'Subang', '2000-02-10', 'laki-laki', 'islam', 'menikah', 'batak', 'A', 'Jalan Jalan', '01/02', 'Soklat', 'Subang', 'Subang', 'Jawa Barat', '082111623434', 'ANTM1.png', '-', '-', '-', '-', '-', '-', 'sudah', ' ', '6'),
-(3, 'angginoah06@gmail.com', 'Rizki', '12345678910', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sudah', 'pendanaan_dan_pemerintahan', '606a0250b3a98');
+INSERT INTO `pegawai` (`id_pegawai`, `email`, `nama_lengkap`, `nip`, `nip_lama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `status_perkawinan`, `suku_bangsa`, `golongan_darah`, `jalan`, `rt/rw`, `desa`, `kecamatan`, `kabupaten`, `provinsi`, `no_telp`, `foto`, `no_karpeg`, `no_karis`, `no_ktp`, `no_peserta_askes`, `no_peserta_taspen`, `npwp`, `status`, `bidang`, `id_user`, `bagian`) VALUES
+(1, 'bagassetia271@gmail.com', 'M. Bagas Setia', '10104019', '-', 'Bandung', '1998-11-26', 'laki-laki', 'islam', 'menikah', 'sunda', 'A', 'Kp. Pasir Gombong', '15/07', 'Sukamandi', 'Sagalaherang', 'Subang', 'Jawa Barat', '085723853284', 'ANTM5.png', '123', '123', '1', '123', '123', '123', 'sudah', 'pendanaan_dan_pemerintahan', '2', NULL),
+(2, 'malbinuriman21@gmail.com', 'M. Albi Nur\'Iman', '12345678', '-', 'Subang', '2000-02-10', 'laki-laki', 'islam', 'menikah', 'sunda', 'A', 'Jalan Jalan', '01/02', 'Soklat', 'Subang', 'Subang', 'Jawa Barat', '082111623434', 'logo_bpn.png', '-', '-', '-', '-', '-', '-', 'sudah', 'pendanaan_dan_pemerintahan', '6', NULL),
+(3, 'angginoah06@gmail.com', 'Rizki', '12345678910', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sudah', 'pendanaan_dan_pemerintahan', '606a0250b3a98', NULL),
+(11, 'bagassetia271@gmail.com', 'M. Bagas Setia', '321301261190001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'belum', 'penelitian_dan_pengembangan', '60cb3dea2766f', 'umum_dan_kepegawaian');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengajuan_pindah`
+--
+
+CREATE TABLE `pengajuan_pindah` (
+  `id_pengajuan_pindah` int(11) NOT NULL,
+  `id_user` varchar(191) NOT NULL,
+  `sk_cpns` varchar(191) NOT NULL,
+  `sk_pangkat` varchar(191) NOT NULL,
+  `kartu_pegawai` varchar(191) NOT NULL,
+  `penilaian_kerja` varchar(191) NOT NULL,
+  `surat_permohonan` varchar(191) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pengajuan_pindah`
+--
+
+INSERT INTO `pengajuan_pindah` (`id_pengajuan_pindah`, `id_user`, `sk_cpns`, `sk_pangkat`, `kartu_pegawai`, `penilaian_kerja`, `surat_permohonan`) VALUES
+(3, '6', 'logo_bpn.png', 'logo_bpn1.png', 'logo_bpn2.png', 'logo_bpn3.png', '60cb7f2571ae9.pdf');
 
 -- --------------------------------------------------------
 
@@ -152,7 +178,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `email`, `password`, `level`) VALUES
 (1, 'adminsimpeg@gmail.com', '12345678', 'admin'),
 (6, 'malbinuriman21@gmail.com', 'polongo', 'pegawai'),
-(7, 'kepalabp4d@gmail.com', '12345678', 'kepala_bp4d');
+(7, 'kepalabp4d@gmail.com', '12345678', 'kepala_bp4d'),
+(60, '', '', 'pegawai');
 
 --
 -- Indexes for dumped tables
@@ -183,6 +210,12 @@ ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
+-- Indeks untuk tabel `pengajuan_pindah`
+--
+ALTER TABLE `pengajuan_pindah`
+  ADD PRIMARY KEY (`id_pengajuan_pindah`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -196,7 +229,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `cuti`
 --
 ALTER TABLE `cuti`
-  MODIFY `id_cuti` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cuti` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `kenaikan_jabatan_pilihan`
@@ -214,13 +247,19 @@ ALTER TABLE `kenaikan_jabatan_reguler`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pegawai` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `pengajuan_pindah`
+--
+ALTER TABLE `pengajuan_pindah`
+  MODIFY `id_pengajuan_pindah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

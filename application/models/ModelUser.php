@@ -23,4 +23,21 @@ class ModelUser extends CI_model {
 			'status'=> $status
 		]);
 	}
+
+  public function tambah()
+  {
+    $id_user  = uniqid();
+    $this->db->insert('pegawai', [
+      'nama_lengkap'  => $this->input->post('nama_lengkap'),
+      'email'         => $this->input->post('email'),
+      'nip'           => $this->input->post('nip'),
+      'bagian'        => $this->input->post('bagian'),
+      'bidang'        => $this->input->post('bidang'),
+      'id_user'       => $id_user
+    ]);
+    $this->db->insert('user', [
+      'id_user' => $id_user,
+      'level'   => 'pegawai'
+    ]);
+  }
 }

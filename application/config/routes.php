@@ -8,12 +8,16 @@ $route['translate_uri_dashes']	= FALSE;
 $route['daftar']                = 'daftar';
 
 $route['admin']                                   = 'Admin/Admin';
-$route['admin/data_pegawai']                      = 'Admin/pegawai';
+$route['admin/data_pegawai']                      = 'Admin/Admin/pegawai';
+$route['admin/data_user']                         = 'Admin/Admin/data_user';
+$route['admin/data_user/tambah']                  = 'Admin/Admin/tambah_data_user';
 $route['admin/pengajuan_cuti.html']               = 'Admin/Cuti';
 $route['admin/pengajuan_cuti/buat_surat/(:any)']  = 'Admin/Cuti/buatSurat/$1';
+$route['admin/verifikasi_pegawai/(:any)']         = 'Admin/Admin/verifikasi_pegawai/$1';
 
 $route['pegawai/tambah_pengajuan_cuti.html']  = 'Pegawai/tambahPengajuanCuti';
-$route['pegawai/pengajuan_cuti.html']         = 'Pegawai/pengajuanCuti';
+$route['pegawai/pengajuan_cuti']              = 'Pegawai/pengajuanCuti';
+$route['pegawai/pengajuan_pindah']            = 'Pegawai/pengajuanPindah';
 
 $route['kasubag.html']                                          = 'Kasubag/Kasubag';
 $route['kasubag/pengajuan_cuti.html']                           = 'Kasubag/Cuti';

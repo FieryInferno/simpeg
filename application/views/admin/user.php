@@ -5,9 +5,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
+        <h4 class="card-title ">Data User</h4>
         <div class="card">
-          <div class="card-header card-header-success">
-            <h4 class="card-title ">Data User</h4>
+          <div class="card-header card-header-success text-center">
+            <a href="<?= base_url(); ?>admin/data_user/tambah" class="btn btn-primary" style="background-color: #0e0495;">Tambah</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">

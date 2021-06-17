@@ -25,26 +25,20 @@
     <div class="limiter">
         <div class="container-login100" style="background-image: url('<?= base_url(); ?>assets/Gedung BP4D.JPG');background-repeat: round;background-size: cover;">
             <div class="wrap-login100" style="background: none;padding-top: 25px;">
-              <div class=row>
+              <!-- <div class=row>
                 <div class="col-12">
-                    <div class="js-tilt text-center" data-tilt>
-                        <img src="<?= base_url(); ?>assets/Logo_Bsr.png" alt="IMG" width="100px">
-                    </div>
-                  <h3 class="text-center mt-2"><strong>Sistem Informasi Manajemen Kepegawaian</strong></h1>
-                  <h3 class="text-center"><strong>Badan Perencanaan Pembangunan Penelitian dan Pengembangan Daerah</strong></h2>
-                  <h3 class="text-center"><strong>(BP4D)</strong></h2>
-                  <h3 class="text-center mb-2"><strong>Kabupaten Subang</strong></h2>
-                </div>
-                <div class="col-12">
-                  <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-6">
+                  <div class="row"> -->
+                    <!-- <div class="col-3"></div> -->
+                    <div>
                         <div class="card" style="background-color: #efd80d;">
                             <div class="card-body">
+                              <h3 class="text-center mt-2"><strong>SIMPEG BP4D</strong></h1>
+                              <h3 class="text-center mb-2"><strong>Kabupaten Subang</strong></h2>
+                              <div class="js-tilt text-center" data-tilt>
+                                <img src="<?= base_url(); ?>assets/Logo_Bsr.png" alt="IMG" width="100px">
+                              </div>
                                 <form class="login100-form validate-form" method="post" action="<?= base_url('Login'); ?>" style="width: 100%;">
-                                    <span class="login100-form-title" style="padding-bottom: 10px;">
-                                        Login
-                                    </span>
+                                  <span class="login100-form-title" style="padding-bottom: 10px;">login</span>
                                 <?php 
                                     if ($this->session->error) { ?>
                                         <div class="alert alert-danger" role="alert">
@@ -83,10 +77,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3"></div>
-                  </div>
+                    <!-- <div class="col-3"></div> -->
+                  <!-- </div>
                 </div>
-              </div>
+              </div> -->
                 
             </div>
         </div>

@@ -89,6 +89,17 @@
                   <p>Pengajuan Cuti</p>
                 </a>
               </li>
+              <li class="nav-item
+                <?php
+                  if ($title == 'Pengajuan Pindah') {
+                    echo 'active';
+                  }
+                ?>">
+                <a class="nav-link text-white" href="<?= base_url(); ?>pegawai/pengajuan_pindah">
+                  <i class="material-icons text-white">person</i>
+                  <p>Pengajuan Pindah</p>
+                </a>
+              </li>
               <?php break;
 
             case 'kepala_bp4d': ?>

@@ -43,7 +43,7 @@ class ModelCuti extends CI_model {
     $this->db->select_max('no_urut');
     $hasil  = $this->db->get('cuti')->row_array();
     if ($hasil['no_urut'] !== NULL) {
-      switch (strlen($hasil['no_urut'])) {
+      switch (strlen($hasil['no_urut'] + 1)) {
         case '1':
           $no_urut  = '000' . $hasil['no_urut'];
           break;
@@ -59,12 +59,17 @@ class ModelCuti extends CI_model {
           break;
       }
       $data['no_surat'] = $no_urut . '/SE/2021'; 
+      $data['no_urut']  = $hasil['no_urut'];
     } else {
-      $data['no_surat'] = '001/SE/2021';
+      $data['no_surat'] = '001/SE/2021'; 
+      $data['no_urut']  = 1;
     }
+
+    $this->db->join('pegawai', 'cuti.id_pegawai = pegawai.id_user');
+    $data['pegawai']  = $this->db->get_where('cuti', ['id_cuti' => $id_cuti])->row_array();
     
     ob_start();
-      $this->load->view('admin/surat_edaran_cuti', $data);
+      $this->load->view('admin/surat_izin_cuti_tahun', $data);
       $html = ob_get_contents();
     ob_end_clean();
     ob_clean();
@@ -79,8 +84,9 @@ class ModelCuti extends CI_model {
     file_put_contents('./assets/' . $filename . '.pdf', $output);
     
     $this->db->update('cuti', [
-      'surat_edaran'  => $filename . '.pdf',
-      'status_cuti'   => '2'
+      'surat_izin'  => $filename . '.pdf',
+      'status_cuti' => '3',
+      'no_urut'     => $data['no_urut'],
     ], ['id_cuti' => $id_cuti]);
   }
 

@@ -29,13 +29,26 @@
                       <tr>
                         <td><?= $key['nama_lengkap']; ?></td>
                         <td><?= $key['tanggal_pengajuan']; ?></td>
-                        <td><?= $key['jenis_cuti']; ?></td>
+                        <td><?= str_replace('_', ' ', $key['jenis_cuti']); ?></td>
                         <td><?= $key['jumlah_hari']; ?></td>
                         <td><?= $key['tanggal_mulai']; ?></td>
                         <td><?= $key['tanggal_selesai']; ?></td>
                         <td><?= $key['alamat_cuti']; ?></td>
                         <td>
-                          <a href="<?= base_url('admin/pengajuan_cuti/buat_surat/' . $key['id_cuti']); ?>" class="btn btn-success">Buat Surat Izin</a>
+                          <?php
+                            switch ($key['status_cuti']) {
+                              case '1': ?>
+                                <a href="<?= base_url('admin/pengajuan_cuti/buat_surat/' . $key['id_cuti']); ?>" class="btn btn-success">Buat Surat Izin</a>
+                                <?php break;
+                              case '3': ?>
+                                <button class="btn btn-success">Surat sudah dibuat</button>
+                                <?php break;
+                              
+                              default:
+                                # code...
+                                break;
+                            }
+                          ?>
                         </td>
                       </tr>
                     <?php } ?>

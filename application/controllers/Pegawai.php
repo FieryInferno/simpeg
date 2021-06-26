@@ -152,17 +152,33 @@ class Pegawai extends CI_Controller {
   public function tambahPengajuanCuti()
   {
     if ($this->input->post()) {
-      $tanggal1     = new DateTime($this->input->post('tanggal_mulai'));
-      $tanggal2     = new DateTime($this->input->post('tanggal_selesai'));
-      $jumlah_hari  = $tanggal2->diff($tanggal1)->format("%a");
+      $data = $this->db->get_where('pegawai', ['id_user' => $this->session->id_user])->row_array();
+      $tanggal1             = new DateTime($this->input->post('tanggal_mulai'));
+      $tanggal2             = new DateTime($this->input->post('tanggal_selesai'));
+      $data['jumlah_hari']  = $tanggal2->diff($tanggal1)->format("%a");
+      ob_start();
+        $this->load->view('cuti_tahunan', $data);
+        $html = ob_get_contents();
+      ob_end_clean();
+      ob_clean();
+      $filename = uniqid();
+      $options  = new Options();
+      $options->set('isRemoteEnabled', TRUE);
+      $dompdf = new Dompdf($options);
+      $dompdf->loadHtml($html);
+      $dompdf->setPaper('legal', 'potrait');
+      $dompdf->render();
+      $output = $dompdf->output();
+      file_put_contents('./assets/' . $filename . '.pdf', $output);
       $this->db->insert('cuti', [
         'id_pegawai'        => $this->session->id_user,
         'tanggal_pengajuan' => date('Y-m-d'),
         'jenis_cuti'        => $this->input->post('jenis_cuti'),
-        'jumlah_hari'       => $jumlah_hari,
+        'jumlah_hari'       => $data['jumlah_hari'],
         'tanggal_mulai'     => $this->input->post('tanggal_mulai'),
         'tanggal_selesai'   => $this->input->post('tanggal_selesai'),
-        'alamat_cuti'       => $this->input->post('alamat_cuti')
+        'alamat_cuti'       => $this->input->post('alamat_cuti'),
+        'surat_pengajuan'   => $filename . '.pdf'
       ]);
       $this->session->set_flashdata('alert', '
         <strong>Sukses</strong> Berhasil tambah pengajuan cuti.

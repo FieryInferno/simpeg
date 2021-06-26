@@ -49,10 +49,6 @@
                     echo 'active';
                   }
                 ?>">
-                <a class="nav-link collapsed text-white" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                      <i class="material-icons text-white">assessment</i>
-                  <span>Data Kenaikan Jabatan</span>
-                </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item nav-link" href="<?= base_url(); ?>admin/jabatan_reguler"> 

@@ -52,7 +52,13 @@ class Login extends CI_Controller {
 						break;
 					case 'kasubid':
 						redirect ('kasubid');
-						break;			
+						break;	
+          case 'kasubag':
+            redirect ('kasubag.html');
+            break;			
+          case 'sekretaris':
+            redirect ('sekretaris.html');
+            break;				
 				}
 			} else {
 				$this->session->set_flashdata(['error'=>'Login Gagal!!!']);

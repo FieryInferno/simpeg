@@ -13,7 +13,7 @@
             <form action="<?php base_url('pegawai/tambah_pengajuan_cuti') ?>" method="post" enctype="multipart/form-data">
               <div class="form-group col-6">
                 <label for="">Jenis Cuti</label>
-                <select class="form-control" name="jenis_cuti" id="jenis_cuti" aria-describedby="helpId" placeholder="">
+                <select class="form-control" name="jenis_cuti" id="jenis_cuti" aria-describedby="helpId" placeholder="" onchange="jenisCuti(this)">
                   <option>Pilih Jenis Cuti</option>
                   <option value="cuti_tahunan">Cuti Tahunan</option>
                   <option value="cuti_besar">Cuti Besar</option>
@@ -22,6 +22,7 @@
                   <option value="cuti_karena_alasan_penting">Cuti karena alasan penting</option>
                 </select>
               </div>
+              <div id="penyebabSakit"></div>
               <div class="form-groupn col-6 mb-3">
                 <label for="">Tanggal Mulai</label>
                 <input type="date" class="form-control" name="tanggal_mulai" id="tanggal_mulai" aria-describedby="helpId" placeholder="">

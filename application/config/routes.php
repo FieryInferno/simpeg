@@ -30,6 +30,6 @@ $route['sekretaris.html']                             = 'Sekretaris/Sekretaris';
 $route['sekretaris/pengajuan_cuti.html']              = 'Sekretaris/Cuti';
 $route['sekretaris/pengajuan_cuti/verifikasi/(:any)'] = 'Sekretaris/Cuti/verifikasi/$1';
 
-$route['kepala_bp4d.html']                              = 'Kepala_bp4d/Kepala_bp4d';
+$route['kepala_bp4d']                                   = 'Kepala_bp4d/Kepala_bp4d';
 $route['kepala_bp4d/pengajuan_cuti.html']               = 'Kepala_bp4d/Cuti';
 $route['kepala_bp4d/pengajuan_cuti/verifikasi/(:any)']  = 'Kepala_bp4d/Cuti/verifikasi/$1';

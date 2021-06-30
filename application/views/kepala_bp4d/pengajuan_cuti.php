@@ -20,7 +20,7 @@
                   <th>Tanggal Mulai</th>
                   <th>Tanggal Selesai</th>
                   <th>Alamat Selama Cuti</th>
-                  <th>Surat Edaran</th>
+                  <th>Surat Izin</th>
                   <th>Aksi</th>
                 </thead>
                 <tbody>
@@ -33,7 +33,7 @@
                         <td><?= $key['tanggal_mulai']; ?></td>
                         <td><?= $key['tanggal_selesai']; ?></td>
                         <td><?= $key['alamat_cuti']; ?></td>
-                        <td><a href="<?= base_url('assets/' . $key['surat_edaran']); ?>" class="btn btn-primary">Lihat File</a></td>
+                        <td><a href="<?= base_url('assets/' . $key['surat_izin']); ?>" class="btn btn-primary">Lihat File</a></td>
                         <td>
                           <a href="<?= base_url('kepala_bp4d/pengajuan_cuti/verifikasi/' . $key['id_cuti']); ?>" class="btn btn-success">Verifikasi</a>
                         </td>

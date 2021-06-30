@@ -80,8 +80,7 @@
       <td><?= $bidang; ?></td>
     </tr>
   </table>
-  <p>Dengan ini mengajukan permintaan cuti tahunan untuk tahun 2021 selama <?= $jumlah_hari; ?> hari, terhitung mulai tanggal <?= tgl_indo($this->input->post('tanggal_mulai')); ?></p>
-  <p>Selama menjalankan cuti, alamat saya adalah di <?= $this->input->post('alamat_cuti'); ?></p>
+  <p>dengan ini mengajukan permintaan cuti bersalin untuk persalinan di luar tanggungan Negara untuk persalinan* terhitung mulai tanggal <?= $this->input->post('tanggal_mulai'); ?></p>
   <p>Demikianlah permintaan ini saya buat untuk dapat dipertimbangkan sebagaimana mestinya</p>
   <table width="100%">
     <tr>

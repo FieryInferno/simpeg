@@ -157,7 +157,27 @@ class Pegawai extends CI_Controller {
       $tanggal2             = new DateTime($this->input->post('tanggal_selesai'));
       $data['jumlah_hari']  = $tanggal2->diff($tanggal1)->format("%a");
       ob_start();
-        $this->load->view('cuti_tahunan', $data);
+        switch ($this->input->post('jenis_cuti')) {
+          case 'cuti_tahunan':
+            $this->load->view('cuti_tahunan', $data);
+            break;
+          case 'cuti_besar':
+            $this->load->view('cuti_besar', $data);
+            break;
+          case 'cuti_sakit':
+            $this->load->view('cuti_sakit', $data);
+            break;
+          case 'cuti_bersalin':
+            $this->load->view('cuti_bersalin', $data);
+            break;
+          case 'cuti_karena_alasan_penting':
+            $this->load->view('cuti_karena_alasan_penting', $data);
+            break;
+          
+          default:
+            # code...
+            break;
+        }
         $html = ob_get_contents();
       ob_end_clean();
       ob_clean();

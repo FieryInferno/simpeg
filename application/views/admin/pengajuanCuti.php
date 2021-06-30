@@ -37,11 +37,12 @@
                         <td>
                           <?php
                             switch ($key['status_cuti']) {
-                              case '1': ?>
+                              case '0': ?>
                                 <a href="<?= base_url('admin/pengajuan_cuti/buat_surat/' . $key['id_cuti']); ?>" class="btn btn-success">Buat Surat Izin</a>
                                 <?php break;
-                              case '3': ?>
+                              case '1': ?>
                                 <button class="btn btn-success">Surat sudah dibuat</button>
+                                <a class="btn btn-primary" href="<?= base_url('assets/' . $key['surat_izin']); ?>">Lihat Surat Izin</a>
                                 <?php break;
                               
                               default:

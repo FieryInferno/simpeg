@@ -12,8 +12,7 @@ class Kepala_bp4d extends CI_Controller {
   public function pengajuan_cuti()
   {
     $this->db->join('pegawai', 'cuti.id_pegawai = pegawai.id_user');
-    $this->db->where('status_cuti', 'verifikasi_admin');
-    $this->db->or_where('status_cuti', 'verifikasi_kepala');
+    $this->db->where_in('status_cuti', ['1', '2']);
     $data['cuti']   = $this->db->get('cuti')->result_array();
 		$data['title']	= 'Pengajuan Cuti';
     $this->load->view('kepala_bp4d/pengajuan_cuti', $data);

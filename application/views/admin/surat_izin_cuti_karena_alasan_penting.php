@@ -44,56 +44,67 @@
           ?>
         </div>
         <br>
-        <div class="text-center">Kepada</div>
-        <div class="text-center">Yth. Bupati Subang</div>
-        <div class="text-center">melalui Kepala BP4D</div>
-        <div class="text-center">di</div>
-        <div class="text-center">tempat</div>
       </td>
     </tr>
   </table>
-  <p>Yang bertanda tangan di bawah ini:</p>
-  <table width="100%">
-    <tr>
-      <td width="30%">Nama</td>
-      <td width="1%">:</td>
-      <td width="69%"><?= $nama_lengkap; ?></td>
-    </tr>
-    <tr>
-      <td>NIP</td>
-      <td>:</td>
-      <td><?= $nip; ?></td>
-    </tr>
-    <tr>
-      <td>Pangkat/golongan ruang</td>
-      <td>:</td>
-      <td><?= $pangkat_golongan; ?></td>
-    </tr>
-    <tr>
-      <td>Jabatan</td>
-      <td>:</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Satuan Organisasi</td>
-      <td>:</td>
-      <td><?= $bidang; ?></td>
-    </tr>
-  </table>
-  <p>Dengan ini mengajukan permintaan cuti tahunan untuk tahun 2021 selama <?= $jumlah_hari; ?> hari, terhitung mulai tanggal <?= tgl_indo($this->input->post('tanggal_mulai')); ?></p>
-  <p>Selama menjalankan cuti, alamat saya adalah di <?= $this->input->post('alamat_cuti'); ?></p>
-  <p>Demikianlah permintaan ini saya buat untuk dapat dipertimbangkan sebagaimana mestinya</p>
+  <div class="text-center">SURAT IZIN CUTI KARENA ALASAN PENTING</div>
+  <div class="text-center">NOMOR : <?= $no_surat; ?></div>
+  <ol type="1">
+    <li>
+      <div>Diberikan cuti karena alasan penting kepada Pegawai Negeri Sipil :</div>
+      <table width="100%">
+        <tr>
+          <td width="30%">Nama</td>
+          <td width="1%">:</td>
+          <td width="69%"><?= $pegawai['nama_lengkap']; ?></td>
+        </tr>
+        <tr>
+          <td>NIP</td>
+          <td>:</td>
+          <td><?= $pegawai['nip']; ?></td>
+        </tr>
+        <tr>
+          <td>Pangkat/golongan ruang</td>
+          <td>:</td>
+          <td><?= $pegawai['pangkat_golongan']; ?></td>
+        </tr>
+        <tr>
+          <td>Jabatan</td>
+          <td>:</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Satuan Organisasi</td>
+          <td>:</td>
+          <td><?= $pegawai['bidang']; ?></td>
+        </tr>
+      </table>
+      <br>
+      <p>Selama <?= $pegawai['jumlah_hari']; ?> hari kerja, terhitung mulai tanggal <?= tgl_indo($pegawai['tanggal_mulai']); ?> sampai dengan tanggal <?= tgl_indo($pegawai['tanggal_selesai']); ?> dengan ketentuan sebagai berikut:</p>
+      <ol type="a">
+        <li>Sebelum menjalankan cuti karena alasan penting menyerahkan pekerjaannya kepada atasan langsungnya.</li>
+        <li>Setelah selesai menjalankan cuti karena alasan penting melaporkan diri kepada atasan langsungnya dan bekerja kembali sebagaimana biasa.</li>
+      </ol>
+    </li>
+    <li>Demikianlah surat izin cuti karena alasan penting ini dibuat untuk dapat digunakan sebagaimana mestinya.</li>
+  </ol>
   <table width="100%">
     <tr>
       <td width="60%">&nbsp;</td>
       <td width="40%">
         <div class="text-center">Hormat saya,</div>
         <br><br><br>
-        <div class="text-center">(<?= $nama_lengkap; ?>)</div>
-        <div class="text-center">(NIP. <?= $nip; ?>)</div>
+        <div class="text-center">(<?= $pegawai['nama_lengkap']; ?>)</div>
+        <div class="text-center">(NIP. <?= $pegawai['nip']; ?>)</div>
       </td>
     </tr>
   </table>
   <br><br><br>
+  <p><strong>TEMBUSAN:</strong></p>
+  <ol type="1">
+    <li>..........................</li>
+    <li>.......................... dan seterusnya.</li>
+    <li>Pertinggal</li>
+  </ol>
 </body>
 </html>

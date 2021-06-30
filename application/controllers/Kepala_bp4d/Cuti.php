@@ -6,7 +6,9 @@ class Cuti extends CI_Controller {
 	public function index()
 	{
     $data['title']  = 'Pengajuan Cuti';
-    $data['cuti']   = $this->ModelCuti->getAll();
+    $this->db->join('pegawai', 'cuti.id_pegawai = pegawai.id_user');
+    $this->db->where_in('status_cuti', ['1', '2']);
+    $data['cuti']   = $this->db->get('cuti')->result_array();
 		$this->load->view('kepala_bp4d/pengajuan_cuti', $data);
 	}
 

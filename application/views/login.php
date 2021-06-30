@@ -30,7 +30,7 @@
                   <div class="row"> -->
                     <!-- <div class="col-3"></div> -->
                     <div>
-                        <div class="card" style="background-color: #efd80d;">
+                        <div class="card" style="background-color: #efd80d;padding-left: 50px;padding-right: 50px;">
                             <div class="card-body">
                               <h3 class="text-center mt-2"><strong>SIMPEG BP4D</strong></h1>
                               <h3 class="text-center mb-2"><strong>Kabupaten Subang</strong></h2>

@@ -250,6 +250,18 @@
         });
       });
     });
+
+    function jenisCuti(data) {
+      if (data.value == 'cuti_sakit') {
+        $('#penyebabSakit').html(`
+          <div class="form-groupn col-6 mb-3">
+            <label for="">Penyebab Sakit</label>
+            <input type="text" class="form-control" name="penyebab_sakit" id="penyebab_sakit" aria-describedby="helpId">
+          </div>`);
+      } else {
+        $('#penyebabSakit').html(``);
+      }
+    }
   </script>
   <script>
     $(document).ready(function() {
